@@ -3,10 +3,8 @@ package com.bj58.mybatisgeneration.dao;
 import com.bj58.mybatisgeneration.entity.User;
 import com.bj58.mybatisgeneration.entity.UserExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface UserMapper {
     int countByExample(UserExample example);
 

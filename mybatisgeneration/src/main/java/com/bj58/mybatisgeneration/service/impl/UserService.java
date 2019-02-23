@@ -49,6 +49,14 @@ public class UserService implements IUserService {
 
     @Override
     public int deleletByMap(Map<String, String> map) {
-        return 0;
+        String userAge  = map.get("age");
+        String email = map.get("email");
+        String phone = map.get("phone");
+        UserExample example = new UserExample();
+        example.createCriteria().andAgeLessThan(Integer.valueOf(userAge))
+                .andEmailEqualTo(email)
+                .andPhoneEqualTo(phone);
+
+        return userMapper.deleteByExample(example);
     }
 }

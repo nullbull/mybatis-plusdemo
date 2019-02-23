@@ -9,6 +9,10 @@ public class User {
 
     private String email;
 
+    private String phone;
+
+    private Byte sex;
+
     public Long getId() {
         return id;
     }
@@ -39,5 +43,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public Byte getSex() {
+        return sex;
+    }
+
+    public void setSex(Byte sex) {
+        this.sex = sex;
     }
 }
