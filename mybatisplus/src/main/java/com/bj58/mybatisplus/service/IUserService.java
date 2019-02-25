@@ -33,4 +33,12 @@ public interface IUserService extends IService<User> {
      List<User> getUserByCondition(Map<String, Object> obj);
 
      List<User> getUser(Object userName, Object email);
+
+     List<User> getUserByIdList(List<Long> idList);
+
+     int selectCount();
+
+     List<User> getUserByLambda(String age, String email);
+
+     List<User> getUserByLambdaAnother(Integer age, String email);
 }

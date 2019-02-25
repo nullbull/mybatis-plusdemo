@@ -9,4 +9,10 @@ mybatis:
   mapper-locations: classpath:xml/*.xml
   #mapper-locations: com.bj58.mybatisgeneration.dao.*
   type-aliases-package: com.bj58.mybatisgeneration.entity
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
 

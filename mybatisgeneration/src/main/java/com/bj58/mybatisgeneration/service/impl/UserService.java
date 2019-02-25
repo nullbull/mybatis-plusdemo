@@ -4,11 +4,16 @@ import com.bj58.mybatisgeneration.dao.UserMapper;
 import com.bj58.mybatisgeneration.entity.User;
 import com.bj58.mybatisgeneration.entity.UserExample;
 import com.bj58.mybatisgeneration.service.IUserService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author 牛贞昊（niuzhenhao@58.com）
@@ -42,9 +47,12 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public int insertBunch(List<User> usersList) {
-        usersList.stream().forEach(userMapper::insert);
-        return 1;
+    public List<User> selectBatchIds(List<Long> idList) {
+        List<User> users = new ArrayList<>();
+        for (long id : idList) {
+            users.add(userMapper.selectByPrimaryKey(id));
+        }
+        return users;
     }
 
     @Override
@@ -58,5 +66,12 @@ public class UserService implements IUserService {
                 .andPhoneEqualTo(phone);
 
         return userMapper.deleteByExample(example);
+    }
+
+    @Override
+    public PageInfo<User> selectByPage(int row, int offset) {
+        PageHelper.startPage(row, offset);
+        List<User> list = userMapper.selectAll();
+        return new PageInfo<>(list);
     }
 }

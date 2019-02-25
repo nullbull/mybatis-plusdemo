@@ -1,6 +1,7 @@
 package com.bj58.mybatisgeneration.service;
 
 import com.bj58.mybatisgeneration.entity.User;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -16,9 +17,10 @@ public interface IUserService {
 
     List<User> selectByUserName(String userName);
 
-    int insertBunch(List<User> usersList);
-
+    List<User> selectBatchIds(List<Long> ids);
 
     int deleletByMap(Map<String, String> map);
+
+    PageInfo<User> selectByPage(int row, int offset);
 
 }

@@ -1,5 +1,6 @@
 package com.bj58.mybatisplus.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Condition;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -12,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -99,6 +101,42 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 .lt("id", 3));
     }
 
+    @Override
+    public int selectCount() {
+        Date startDate = new Date();
+        Date currentDate = new Date();
+        int buyCount = userMapper.selectCount(new QueryWrapper<User>()
+                .select("sum(quantity)")
+                .isNull("order_id")
+                .eq("user_id", 1)
+                .eq("type", 1)
+                .in("status", new Integer[]{0, 1})
+                .eq("product_id", 1)
+                .between("created_time", startDate, currentDate)
+                .eq("weal", 1));
+        return buyCount;
+    }
+
+    @Override
+    public List<User> getUserByLambda(String age, String email) {
+        return userMapper.selectList(new QueryWrapper<User>().lambda()
+        .eq(User::getAge, Integer.valueOf(age))
+        .eq(User::getEmail, email)
+        );
+    }
+
+    @Override
+    public List<User> getUserByLambdaAnother(Integer age, String email) {
+        return userMapper.selectList(new QueryWrapper<User>().lambda()
+                .and(obj -> obj.eq(User::getEmail, email)
+                .eq(User::getAge, age)));
+    }
+
+
+    @Override
+    public List<User> getUserByIdList(List<Long> idList) {
+        return userMapper.selectBatchIds(idList);
+    }
 
 
 }

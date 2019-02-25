@@ -2,6 +2,7 @@ package com.bj58.mybatisgeneration.service.impl;
 
 import com.bj58.mybatisgeneration.entity.User;
 import com.bj58.mybatisgeneration.service.IUserService;
+import com.github.pagehelper.PageInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,12 @@ public class UserServiceTest {
             users.add(user);
         }
         userService.insertBunch(users);
+    }
+
+    @Test
+    public void selectByPage() {
+        PageInfo<User> pageInfo = new PageInfo<>();
+        pageInfo = userService.selectByPage(1, 2);
+        pageInfo.getList().stream().forEach(System.out::println);
     }
 }

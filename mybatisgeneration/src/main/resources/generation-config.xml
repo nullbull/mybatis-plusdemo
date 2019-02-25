@@ -22,7 +22,7 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="classpath:xml" targetProject="D:\Git\mybatisplus.demo\mybatisgeneration\src\main\resources">
+        <sqlMapGenerator targetPackage="xml" targetProject="D:\Git\mybatisplus.demo\mybatisgeneration\src\main\resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->
