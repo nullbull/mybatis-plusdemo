@@ -2,6 +2,9 @@ package com.bj58.mybatisplus.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bj58.mybatisplus.entity.User;
+import com.bj58.mybatisplus.entity.UserTest;
+import com.bj58.mybatisplus.mapper.UserMapper;
+import com.bj58.mybatisplus.mapper.UserTestMapper;
 import com.bj58.mybatisplus.service.IUserService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,6 +29,12 @@ public class UserServiceImplTest {
     @Autowired
     IUserService userService;
 
+    @Autowired
+    UserMapper userMapper;
+
+    @Autowired
+    UserTestMapper userTestMapper;
+
     @Test
     public void getByName() throws Exception {
         Assert.assertTrue(userService.getUserListByName("zwt").size() > 0);
@@ -47,7 +56,7 @@ public class UserServiceImplTest {
     @Test
     public void getByPage() {
         System.out.println("筛选第一页");
-        Page<User> userPage = (Page<User>) userService.getAllByPage(0, 2);
+        Page<User> userPage = (Page<User>) userService.getAllByPage(1, 2);
         System.out.println(userPage.getCurrent());
         System.out.println(userPage.getTotal());
         userPage.getRecords().forEach(System.out::println);
@@ -58,5 +67,26 @@ public class UserServiceImplTest {
     @Test
     public void getByCondition() {
         userService.getUser("zwt", "2").stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void testIncepor() {
+        User user = new User();
+        user.setId(23L);
+        user.setName("niu");
+        userMapper.insert(user);
+    }
+
+    @Test
+    public void testUpdete() {
+        User user = new User();
+        user.setId(1L);
+        user.setName("test");
+        userMapper.updateById(user);
+    }
+
+    @Test
+    public void testUserTest() {
+        userTestMapper.selectList(null).stream().forEach(System.out::println);
     }
 }

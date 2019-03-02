@@ -85,7 +85,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public IPage getAllByPage(long rows, long offset) {
-        return userMapper.selectPage(new Page<User>(rows, offset), null);
+        return userMapper.selectPage(new Page<User>(rows, offset), new QueryWrapper<User>()
+        .lambda().eq(User::getId, 3L));
     }
 
     @Override
@@ -98,7 +99,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return userMapper.selectList(new QueryWrapper<User>()
                 .eq("email", email)
                 .eq("name", userName)
-                .lt("id", 3));
+                .eq("id", 1L));
     }
 
     @Override

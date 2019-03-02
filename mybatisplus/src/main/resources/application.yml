@@ -7,3 +7,6 @@ spring:
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: com.bj58.mybatisplus.mapper.*
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

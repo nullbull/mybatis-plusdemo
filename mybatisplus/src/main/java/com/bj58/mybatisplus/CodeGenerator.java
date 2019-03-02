@@ -48,7 +48,7 @@ public class CodeGenerator {
             // 全局配置
             GlobalConfig gc = new GlobalConfig();
             final String projectPath = System.getProperty("user.dir");
-            gc.setOutputDir(projectPath + "/src/main/java");
+            gc.setOutputDir(projectPath + "/mybatisplus/src/main/java");
             gc.setAuthor("justinniu");
             gc.setOpen(false);
             mpg.setGlobalConfig(gc);
@@ -81,10 +81,11 @@ public class CodeGenerator {
             strategy.setRestControllerStyle(false);
 //            strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
             strategy.setInclude(scanner("表名"));
-//            strategy.setSuperEntityColumns("id");
-//            strategy.setControllerMappingHyphenStyle(true);
-            strategy.setTablePrefix(pc.getModuleName() + "_");
+            TemplateConfig tc = new TemplateConfig();
+            tc.setController(null);
+//            strategy.setTablePrefix(pc.getModuleName() + "_");
             mpg.setStrategy(strategy);
+            mpg.setTemplate(tc);
 //            mpg.setTemplateEngine(new FreemarkerTemplateEngine());
             mpg.execute();
         }
