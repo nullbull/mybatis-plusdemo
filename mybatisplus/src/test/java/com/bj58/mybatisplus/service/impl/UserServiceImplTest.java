@@ -89,4 +89,10 @@ public class UserServiceImplTest {
     public void testUserTest() {
         userTestMapper.selectList(null).stream().forEach(System.out::println);
     }
+
+
+    @Test
+    public void testGet() {
+        userMapper.selectByID(1L);
+    }
 }

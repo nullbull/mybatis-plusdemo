@@ -100,10 +100,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.bj58.mybatisgeneration.entity.User" >
-    insert into user (id, username, password,
-      nickname)
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{nickname,jdbcType=VARCHAR})
+    insert into user (id, username, password, nickname)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.bj58.mybatisgeneration.entity.User" >
     insert into user
@@ -195,6 +193,6 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectById" resultMap="BaseResultMap">
-                select * from user where id = ${id} and username = #{name}
+        select * from user where id = ${id} and username = #{name}
     </select>
 </mapper>

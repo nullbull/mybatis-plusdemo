@@ -13,15 +13,15 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <!-- 配置mybatis的分页插件PageHelper -->
-    <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <property name="dialect" value="mysql"/>
-            <!--<property name="offsetAsPageNum" value="false"/>-->
-            <!--<property name="rowBoundsWithCount" value="false"/>-->
-            <!--<property name="pageSizeZero" value="true"/>-->
-            <!--<property name="reasonable" value="false"/>-->
-            <!--<property name="supportMethodsArguments" value="false"/>-->
-            <!--<property name="returnPageInfo" value="none"/>-->
-        </plugin>
-    </plugins>
+<!--    <plugins>-->
+<!--        <plugin interceptor="com.github.pagehelper.PageHelper">-->
+<!--            <property name="dialect" value="mysql"/>-->
+<!--            &lt;!&ndash;<property name="offsetAsPageNum" value="false"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;<property name="rowBoundsWithCount" value="false"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;<property name="pageSizeZero" value="true"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;<property name="reasonable" value="false"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;<property name="supportMethodsArguments" value="false"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;<property name="returnPageInfo" value="none"/>&ndash;&gt;-->
+<!--        </plugin>-->
+<!--    </plugins>-->
 </configuration>

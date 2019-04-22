@@ -41,7 +41,6 @@ public class UserService implements IUserService {
     public List<User> selectByUserName(String userName) {
         UserExample userExample = new UserExample();
         userExample.createCriteria()
-                .andNameEqualTo("userName")
                 .andIdBetween(1L, 5L);
         return userMapper.selectByExample(userExample);
     }
@@ -61,17 +60,17 @@ public class UserService implements IUserService {
         String email = map.get("email");
         String phone = map.get("phone");
         UserExample example = new UserExample();
-        example.createCriteria().andAgeLessThan(Integer.valueOf(userAge))
-                .andEmailEqualTo(email)
-                .andPhoneEqualTo(phone);
 
         return userMapper.deleteByExample(example);
     }
 
     @Override
     public PageInfo<User> selectByPage(int row, int offset) {
-        PageHelper.startPage(row, offset);
-        List<User> list = userMapper.selectAll();
-        return new PageInfo<>(list);
+        return null;
     }
+
+//    @Override
+//    public PageInfo<User> selectByPage(int row, int offset) {
+//        PageHelper.startPage(row, offset);
+//    }
 }

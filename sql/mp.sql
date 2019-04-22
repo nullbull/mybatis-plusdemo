@@ -2,7 +2,8 @@
 SQLyog Ultimate v12.08 (64 bit)
 MySQL - 5.7.24 : Database - testdb
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -21,6 +22,22 @@ USE `testdb`;
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL COMMENT '璐﹀彿',
+  `password` varchar(255) DEFAULT NULL COMMENT '瀵嗙爜',
+  `nickname` varchar(255) DEFAULT '' COMMENT '鏄电О',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `user` */
+
+insert  into `user`(`id`,`username`,`password`,`nickname`) values (1,'zwt','123456','哈哈'),(8,'justinniu','123456',NULL),(122,'justinniu','123456',NULL);
+
+/*Table structure for table `user_0` */
+
+DROP TABLE IF EXISTS `user_0`;
+
+CREATE TABLE `user_0` (
   `id` bigint(20) NOT NULL COMMENT '涓婚敭ID',
   `name` varchar(30) DEFAULT NULL COMMENT '濮撳悕',
   `age` int(11) DEFAULT NULL COMMENT '骞撮緞',
@@ -30,9 +47,27 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `user` */
+/*Data for the table `user_0` */
 
-insert  into `user`(`id`,`name`,`age`,`email`,`phone`,`sex`) values (1,'zwt',21,'2',NULL,NULL),(2,'niuzhenhao',20,'1',NULL,NULL),(3,'nzh',28,'3',NULL,NULL),(4,'test',21,'4',NULL,NULL),(5,'hhh',24,'5',NULL,NULL),(8,'justinniu',23,'1129114837@qq.com',NULL,NULL);
+insert  into `user_0`(`id`,`name`,`age`,`email`,`phone`,`sex`) values (1,'zwt',21,'2',NULL,NULL),(2,'niuzhenhao',20,'1',NULL,NULL),(3,'nzh',28,'3',NULL,NULL),(4,'test',21,'4',NULL,NULL),(5,'hhh',24,'5',NULL,NULL),(8,'justinniu',23,'1129114837@qq.com',NULL,NULL),(22,'niu',NULL,NULL,NULL,NULL);
+
+/*Table structure for table `user_1` */
+
+DROP TABLE IF EXISTS `user_1`;
+
+CREATE TABLE `user_1` (
+  `id` bigint(20) NOT NULL COMMENT '涓婚敭ID',
+  `name` varchar(30) DEFAULT NULL COMMENT '濮撳悕',
+  `age` int(11) DEFAULT NULL COMMENT '骞撮緞',
+  `email` varchar(50) DEFAULT NULL COMMENT '閭',
+  `phone` varchar(11) DEFAULT NULL,
+  `sex` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `user_1` */
+
+insert  into `user_1`(`id`,`name`,`age`,`email`,`phone`,`sex`) values (1,'test',21,'2',NULL,NULL),(2,'niuzhenhao',20,'1',NULL,NULL),(3,'nzh',28,'3',NULL,NULL),(4,'test',21,'4',NULL,NULL),(5,'hhh',24,'5',NULL,NULL),(8,'justinniu',23,'1129114837@qq.com',NULL,NULL),(23,'niu',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `user_test` */
 

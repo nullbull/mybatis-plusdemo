@@ -28,7 +28,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    List<User> selectAll();
-
-    List<User> selectByIds(List<Long> idList);
+    User selectById(@Param("id") int id, @Param("name") String name);
 }
